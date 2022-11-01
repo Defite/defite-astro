@@ -1,11 +1,11 @@
 import type { SocialsObject } from "./types";
 
 export const SITE = {
-  website: "https://astro-paper.pages.dev/",
+  website: "https://nikita.codes/",
   author: "Nikita Makhov",
   desc: "Personal notes about Volvo, frontend and games",
   title: "Nikita Codes",
-  ogImage: "default-og.png",
+  ogImage: "share.png",
   lightAndDarkMode: true,
   postPerPage: 3,
 };
