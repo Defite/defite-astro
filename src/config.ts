@@ -4,7 +4,7 @@ export const SITE = {
   website: "https://astro-paper.pages.dev/",
   author: "Nikita Makhov",
   desc: "Personal notes about Volvo, frontend and games",
-  title: "Defite",
+  title: "Nikita Codes",
   ogImage: "default-og.png",
   lightAndDarkMode: true,
   postPerPage: 3,
