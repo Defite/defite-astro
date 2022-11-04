@@ -6,10 +6,11 @@ import getPageNumbers from "@utils/getPageNumbers";
 import type { Frontmatter } from "src/types";
 
 const posts = await Astro.glob<Frontmatter>("../../contents/**/*.md");
+const nonDraftPosts = posts.filter(post => !post.frontmatter.draft);
 
-const sortedPosts = getSortedPosts(posts);
+const sortedPosts = getSortedPosts(nonDraftPosts);
 
-const totalPages = getPageNumbers(posts.length);
+const totalPages = getPageNumbers(nonDraftPosts.length);
 
 const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage);
 ---
