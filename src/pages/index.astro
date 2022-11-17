@@ -55,7 +55,7 @@ const featuredPosts = getFeaturedPosts(sortedPosts);
     <Hr />
 
     {
-      featuredPosts && (
+      featuredPosts.length > 0 && (
         <section id="featured">
           <h2>Featured</h2>
           <ul>
