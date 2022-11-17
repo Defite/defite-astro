@@ -9,10 +9,12 @@ import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
 import type { Frontmatter } from "src/types";
 import Socials from "@components/Socials.astro";
+import getFeaturedPosts from "@utils/getFeaturedPosts";
 
 const posts = await Astro.glob<Frontmatter>("../contents/**/*.md");
 
 const sortedPosts = getSortedPosts(posts);
+const featuredPosts = getFeaturedPosts(posts);
 ---
 
 <Layout>
@@ -52,23 +54,22 @@ const sortedPosts = getSortedPosts(posts);
 
     <Hr />
 
-    <section id="featured">
-      <h2>Featured</h2>
-      <ul>
-        {
-          sortedPosts.map(
-            ({ frontmatter }) =>
-              frontmatter.featured && (
-                <Card
-                  href={`/posts/${slugify(frontmatter)}`}
-                  post={frontmatter}
-                  secHeading={false}
-                />
-              )
-          )
-        }
-      </ul>
-    </section>
+    {
+      featuredPosts && (
+        <section id="featured">
+          <h2>Featured</h2>
+          <ul>
+            {featuredPosts.map(({ frontmatter }) => (
+              <Card
+                href={`/posts/${slugify(frontmatter)}`}
+                post={frontmatter}
+                secHeading={false}
+              />
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     <Hr />
 
